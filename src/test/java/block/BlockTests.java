@@ -13,7 +13,6 @@ public class BlockTests {
 	void createBlocks() {
 		List<Block> blockchain = new ArrayList<Block>();
 		
-		
 		blockchain.add(new Block(new BlockData("Hi im the first block"), "0"));
 		blockchain.add(new Block(new BlockData("Yo im the second block"),
 				blockchain.get(blockchain.size()-1).hash));
