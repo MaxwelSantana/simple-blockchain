@@ -5,9 +5,13 @@ import java.util.List;
 
 public class BlockChain {
 	private List<Block> blockChain = new ArrayList<Block>();
+	private int difficulty = 2;
 
-	public BlockChain(List<Block> blockChainList) {
-		this.blockChain = blockChainList;
+	public BlockChain() {}
+	
+	public void mineAndAdd(Block block) {
+		block.mineBlock(difficulty);
+		blockChain.add(block);
 	}
 	
 	public Boolean isChainValid() {
@@ -30,5 +34,10 @@ public class BlockChain {
 		}
 		
 		return true;
+	}
+
+	public String previousHash() {
+		if(blockChain.isEmpty()) return "0";
+		return blockChain.get(blockChain.size() - 1).hash;
 	}
 }
